@@ -1,0 +1,47 @@
+body {
+  background-color: yellow;
+  font-family: sans-serif;
+  font-size: 16pt;
+
+}
+
+h1 {
+  font-size: 40pt;
+  text-align: center;
+}
+
+.scores, .results {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-top: 12pt;
+  padding-bottom: 12pt;
+}
+
+.player-score, .dash, .computer-score, .player, .computer {
+  font-size: 32pt;
+  padding-left: 12pt;
+  padding-right: 12pt;
+}
+
+.images {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.image-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  max-width: 50%;
+  height: auto;
+}
+
+.image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}

@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Rock Paper Scissors</title>
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
     <body>
-        <script type="text/javascript" src="main.js"></script>
+      <h1 class="heading">Rock Paper Scissors Game</h1>
+      <div class="scores">
+        <div class="player-score">0</div>
+        <div class="dash">-</div>
+        <div class="computer-score">0</div>
+      </div>
+      <p class="message"></p>
+      <div class="images">
+        <div class="image-area">
+          <img class="image" src="images/rock.jpg" alt="rock"/>
+          <p class="caption">Rock</p>
+        </div>
+        <div class="image-area">
+          <img class="image" src="images/paper.jpg" alt="paper"/>
+          <p class="caption">Paper</p>
+        </div>
+        <div class="image-area">
+          <img class="image" src="images/scissors.jpg" alt="rock"/>
+          <p class="caption">Scissors</p>
+        </div>
+      </div>
+      <div class="results">
+        <div class="player">Player</div>
+        <div class="computer">Computer</div>
+      </div>
+      <script type="text/javascript" src="main.js"></script>
     </body>
 </html>
