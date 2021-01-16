@@ -1,6 +1,15 @@
 let choices = ['Rock', 'Paper', 'Scissors'];
 let playerScore = 0;
 let computerScore = 0;
+// Add "click" even listener for each image
+const images = Array.from(document.querySelectorAll('.image'));
+images.forEach(image => image.addEventListener('click', playGame));
+// Select all DOM nodes
+const message = document.querySelector('.message');
+const playScoreDisplay = document.querySelector('.player-score');
+const computerScoreDisplay = document.querySelector('.computer-score');
+const playSelectDisplay = document.querySelector('.player');
+const computerSelectDisplay = document.querySelector('.computer');
 
 function computerPlay() {
     let computerSelection = choices[Math.floor(Math.random() * choices.length)];
@@ -50,23 +59,47 @@ function playRound(playerSelection, computerSelection) {
     return result;
 }
 
-function game() {
-    // Initialize player and computer selection
-    let playerSelection;
+function game(playerSelection) {
+    // Initialize computer selection
     let computerSelection;
-    // Round counter
-    let round;
-    for (round = 1; round < 6; round++) {
-        playerSelection = prompt('Player selection:');
-        computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection, playerScore, computerScore));
+    computerSelection = computerPlay();
+    // Play this round
+    result = playRound(playerSelection, computerSelection);
+    // Display results
+    message.textContent = result;
+    playScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
+    playSelectDisplay.appendChild(addParagraph(playerSelection));
+    computerSelectDisplay.appendChild(addParagraph(computerSelection));
+    // Show "Play Again" button when game finishes
+    if (playerScore === 5 || computerScore === 5) {
+      showPlayAgain();
     }
-    // Final result
-    if (playerScore > computerScore) {
-        console.log(`You win! Final result is ${playerScore} to ${computerScore}.`)
-    } else if (playerScore < computerScore) {
-        console.log(`You lose! Final result is ${playerScore} to ${computerScore}.`)
-    } else {
-        console.log(`Tied at ${playerScore} to ${computerScore}.`)
-    }
+}
+
+function playGame(e) {
+  if (playerScore >= 5 || computerScore >= 5) {
+    return;
+  }
+  //console.log(e.target.alt)
+  game(e.target.alt)
+}
+
+function addParagraph(text) {
+  const p = document.createElement('p');
+  p.textContent = text;
+  return p
+}
+
+function showPlayAgain() {
+  const img = document.createElement('img');
+  img.src = 'images/play_again.png';
+  img.classList.add("playagain");
+  const area = document.querySelector('.button-area');
+  area.appendChild(img);
+  img.addEventListener('click', playAgain);
+}
+
+function playAgain() {
+  window.location.reload();
 }

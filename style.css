@@ -2,12 +2,20 @@ body {
   background-color: yellow;
   font-family: sans-serif;
   font-size: 16pt;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
   font-size: 40pt;
   text-align: center;
+}
+
+p {
+  font-size: 16pt;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .scores, .results {
@@ -42,6 +50,32 @@ h1 {
 }
 
 .image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.message {
+  align-content: center;
+  justify-content: center;
+}
+
+.player, .computer {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-area {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.playagain {
+  max-width: 200px;
+  height: auto;
+}
+
+.playagain:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
